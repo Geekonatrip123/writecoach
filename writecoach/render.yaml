@@ -1,0 +1,28 @@
+services:
+  # API Service
+  - type: web
+    name: writecoach-api
+    env: python
+    buildCommand: "pip install -r requirements.txt && python -m nltk.downloader punkt averaged_perceptron_tagger punkt_tab"
+    startCommand: "python api.py"
+    envVars:
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: PORT
+        value: 8000
+    routes:
+      - type: rewrite
+        source: /api/*
+        destination: /*
+
+  # Streamlit Service
+  - type: web
+    name: writecoach-streamlit
+    env: python
+    buildCommand: "pip install -r requirements.txt && python -m nltk.downloader punkt averaged_perceptron_tagger punkt_tab"
+    startCommand: "streamlit run app.py --server.port $PORT --server.address 0.0.0.0"
+    envVars:
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: PORT
+        value: 8501

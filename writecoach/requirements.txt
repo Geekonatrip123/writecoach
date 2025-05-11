@@ -1,0 +1,11 @@
+streamlit
+fastapi
+uvicorn
+pydantic
+nltk
+openai
+anthropic
+google-generativeai
+pandas
+plotly
+python-dotenv
