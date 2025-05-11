@@ -6,7 +6,7 @@ services:
       - "8000:8000"
     environment:
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
-    command: python api.py
+    command: python writecoach/api.py
     
   streamlit:
     build: .
@@ -14,4 +14,4 @@ services:
       - "8501:8501"
     environment:
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
-    command: streamlit run app.py --server.port 8501 --server.address 0.0.0.0
+    command: cd writecoach && streamlit run app.py --server.port 8501 --server.address 0.0.0.0
