@@ -11,13 +11,18 @@ import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
 
-# Page config
 st.set_page_config(
-    page_title="WriteCoach - Personal Writing Assistant",
+    page_title="WriteCoach",
     page_icon="✍️",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# Clear any cached JavaScript
+if 'initialized' not in st.session_state:
+    st.session_state.initialized = True
+    st.experimental_rerun()
+
 
 # Initialize pipeline
 @st.cache_resource
