@@ -17,7 +17,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
-
+API_BASE_URL = "https://writecoach-api-zmur.onrender.com"
 # Clear any cached JavaScript
 if 'initialized' not in st.session_state:
     st.session_state.initialized = True
