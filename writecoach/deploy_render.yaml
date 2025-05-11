@@ -5,7 +5,7 @@ services:
     buildCommand: pip install -r requirements.txt && python -c "import nltk; nltk.download('punkt'); nltk.download('averaged_perceptron_tagger')"
     startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
     envVars:
-      - key: OPENAI_API_KEY
+      - key: GOOGLE_API_KEY
         sync: false
     healthCheckPath: /health
     
