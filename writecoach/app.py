@@ -21,7 +21,6 @@ st.set_page_config(
 # Clear any cached JavaScript
 if 'initialized' not in st.session_state:
     st.session_state.initialized = True
-    st.experimental_rerun()
 
 
 # Initialize pipeline
