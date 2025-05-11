@@ -10,16 +10,26 @@ import nltk
 from collections import Counter
 
 # Explicitly add the NLTK data path
-nltk.data.path.append('/home/samstark/nltk_data')
+#nltk.data.path.append('/home/samstark/nltk_data')
+
+nltk.data.path.append('/opt/render/nltk_data')
+
+# Download required data if not found
+try:
+    nltk.data.find('tokenizers/punkt_tab')
+except LookupError:
+    print("Downloading punkt_tab...")
+    nltk.download('punkt_tab', download_dir='/opt/render/nltk_data')
+
 
 # Verify NLTK data is available
-try:
-    nltk.data.find('tokenizers/punkt')
-    nltk.data.find('tokenizers/punkt_tab')
-    nltk.data.find('taggers/averaged_perceptron_tagger')
-    print("NLTK data found successfully!")
-except LookupError as e:
-    print(f"NLTK data error: {e}")
+#try:
+#    nltk.data.find('tokenizers/punkt')
+#    nltk.data.find('tokenizers/punkt_tab')
+#    nltk.data.find('taggers/averaged_perceptron_tagger')
+#    print("NLTK data found successfully!")
+#except LookupError as e:
+#    print(f"NLTK data error: {e}")
 
 class TextAnalyzer:
     def __init__(self):
